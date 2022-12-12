@@ -1,9 +1,14 @@
 <script>
-    export default{}
+    import TheSearchSection from './TheSearchSection.vue';
+
+    export default{ 
+        components: { TheSearchSection } 
+    }
 </script>
 
 <template>
-
+    <h1>BoolFlix</h1>
+    <TheSearchSection />
 </template>
 
 <style lang="scss" scoped>

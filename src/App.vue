@@ -9,8 +9,10 @@
 </script>
 
 <template>
-    <TheHeader />
-    <TheMain />
+    <div class="container">
+        <TheHeader />
+        <TheMain />
+    </div>
 </template>
 
 <style lang="scss">
