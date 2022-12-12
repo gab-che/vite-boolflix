@@ -1,6 +1,6 @@
 <script>
     import TheSearchSection from './TheSearchSection.vue';
-    import {store, fetchMovies} from '../store';
+    import {store, fetchMovies, fetchSeries} from '../store';
     export default{ 
         components: { TheSearchSection },
         data(){
@@ -13,6 +13,7 @@
             searchTitle(title){
                 this.store.searchInput = title;
                 fetchMovies();
+                fetchSeries();
             }
         }
     }
@@ -27,6 +28,14 @@
             <p>Titolo originale: {{movie.original_title}}</p>
             <p>Lingua: {{movie.original_language}}</p>
             <p>Voto: {{movie.vote_average}}</p>
+        </li>
+    </ul>
+    <ul>
+        <li v-for="serie in store.series">
+            <h5>Titolo: {{serie.name}}</h5>
+            <p>Titolo originale: {{serie.original_name}}</p>
+            <p>Lingua: {{serie.original_language}}</p>
+            <p>Voto: {{serie.vote_average}}</p>
         </li>
     </ul>
 </template>

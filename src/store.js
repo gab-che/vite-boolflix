@@ -24,3 +24,17 @@ export function fetchMovies() {
             //console.log(error);
         })
 }
+
+export function fetchSeries() {
+    axios.get('https://api.themoviedb.org/3/search/tv', {
+        params: {
+            api_key: store.apiKey,
+            language: 'it-IT',
+            query: store.searchInput,
+        }
+    })
+        .then((resp) => {
+            console.log(resp.data.results)
+            store.series = resp.data.results
+        })
+}
