@@ -1,22 +1,29 @@
 <script>
-    import {store, fetchMovies} from '../store';
     export default{
         data(){
             return{
-                store,
+                userInput: {
+                    title: '',
+                },
             }
         },
 
-        created(){
-            fetchMovies()
-        }
+        emits: ['search-title'],
+
+        methods: {
+            onSearchClick(){
+                this.$emit('search-title', this.userInput.title)
+            }
+        },
     }
 </script>
 
 <template>
     <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Inserisci film">
-        <button class="btn btn-outline-secondary" type="button">Cerca</button>
+        <input type="text" class="form-control" placeholder="Inserisci film"
+            v-model="userInput.title">
+        <button class="btn btn-outline-secondary" type="button"
+            @click="onSearchClick">Cerca</button>
     </div>
 
 </template>
