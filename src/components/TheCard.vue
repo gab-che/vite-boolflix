@@ -27,7 +27,6 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">{{card.original_language}}</li>
                 <li class="list-group-item">{{card.vote_average}}</li>
-                <!-- <li class="list-group-item">A third item</li> -->
             </ul>
         </div>
     </div>

@@ -1,9 +1,8 @@
 <script>
     import {store} from '../store';
-    import TheMovieCard from './TheMovieCard.vue';
-    import TheSeriesCard from './TheSeriesCard.vue';
+    import TheCard from './TheCard.vue';
     export default{
-        components: { TheMovieCard, TheSeriesCard },
+        components: { TheCard },
         
         data(){
             return{
@@ -18,7 +17,7 @@
     <div class="row">
         <div class="col col-sm-5 col-lg-3"
             v-for="card in store.movies">
-            <TheMovieCard :card="card"></TheMovieCard>
+            <TheCard :card="card"></TheCard>
         </div>
     </div>
 
@@ -26,7 +25,7 @@
     <div class="row">
         <div class="col col-sm-5 col-lg-3"
             v-for="card in store.series">
-            <TheSeriesCard :card="card"></TheSeriesCard>
+            <TheCard :card="card"></TheCard>
         </div>
     </div>
 </template>
