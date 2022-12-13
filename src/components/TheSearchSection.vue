@@ -20,7 +20,7 @@
 
 <template>
     <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Inserisci film"
+        <input type="text" class="form-control" placeholder="Cerca film o serie tv"
             v-model="userInput.title">
         <button class="btn btn-outline-secondary" type="button"
             @click="onSearchClick">Cerca</button>

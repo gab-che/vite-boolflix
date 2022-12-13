@@ -9,14 +9,21 @@
 </script>
 
 <template>
-    <ul>
-        <li>
-            <h5>Titolo: {{card.name}}</h5>
-            <p>Titolo originale: {{card.original_name}}</p>
-            <p>Lingua: {{card.original_language}}</p>
-            <p>Voto: {{card.vote_average}}</p>
-        </li>
-    </ul>
+    <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{card.name}}</h5>
+            <p class="card-text">{{card.original_name}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{card.original_language}}</li>
+            <li class="list-group-item">{{card.vote_average}}</li>
+            <!-- <li class="list-group-item">A third item</li> -->
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+        </div>
+    </div>
 </template>
 
 <style lang="scss" scoped>
