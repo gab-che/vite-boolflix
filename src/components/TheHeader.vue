@@ -1,6 +1,6 @@
 <script>
     import TheSearchSection from './TheSearchSection.vue';
-    import {store, fetchMovies, fetchSeries} from '../store';
+    import {store, fetchMovies, fetchSeries, fetchImgSizes} from '../store';
     export default{ 
         components: { TheSearchSection },
         data(){
@@ -14,6 +14,7 @@
                 this.store.searchInput = title;
                 fetchMovies();
                 fetchSeries();
+                fetchImgSizes();
             }
         }
     }

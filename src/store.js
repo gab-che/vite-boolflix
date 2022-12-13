@@ -5,6 +5,7 @@ export const store = reactive({
     apiKey: '09dc0f7da6892386bc87edd5bc10ae54',
     movies: [],
     series: [],
+    imgSizes: [],
     searchInput: '',
 });
 
@@ -36,5 +37,17 @@ export function fetchSeries() {
         .then((resp) => {
             console.log(resp.data.results)
             store.series = resp.data.results
+        })
+}
+
+export function fetchImgSizes() {
+    axios.get('https://api.themoviedb.org/3/configuration', {
+        params: {
+            api_key: store.apiKey,
+        }
+    })
+        .then((resp) => {
+            console.log(resp.data.images.poster_sizes)
+            store.imgSizes = resp.data.images.poster_sizes;
         })
 }
