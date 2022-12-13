@@ -1,10 +1,9 @@
 <script>
     export default{
         props: {
-            card:{
-                type: Object,
-
-            }
+            card: {
+                type: Object
+            },
         }
     }
 </script>
@@ -18,14 +17,6 @@
             <p>Voto: {{card.vote_average}}</p>
         </li>
     </ul>
-    <!-- <ul>
-        <li v-for="serie in store.series">
-            <h5>Titolo: {{serie.name}}</h5>
-            <p>Titolo originale: {{serie.original_name}}</p>
-            <p>Lingua: {{serie.original_language}}</p>
-            <p>Voto: {{serie.vote_average}}</p>
-        </li>
-    </ul> -->
 </template>
 
 <style lang="scss" scoped>
