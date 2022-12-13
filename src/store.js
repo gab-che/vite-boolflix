@@ -7,7 +7,16 @@ export const store = reactive({
     series: [],
     imgSizes: [],
     searchInput: '',
+    seriesFormatted: [],
 });
+
+export function changeObjectKey(oldarray) {
+    oldarray.map(({
+        name: title,
+        original_name: original_title,
+        ...keys
+    }) => store.seriesFormatted.push({ title, original_title, ...keys }));
+}
 
 export function fetchMovies() {
     axios.get('https://api.themoviedb.org/3/search/movie', {
@@ -18,7 +27,6 @@ export function fetchMovies() {
         }
     })
         .then((resp) => {
-            console.log(resp.data.results)
             store.movies = resp.data.results
         })
         .catch((error) => {
@@ -35,8 +43,9 @@ export function fetchSeries() {
         }
     })
         .then((resp) => {
-            console.log(resp.data.results)
-            store.series = resp.data.results
+            store.series = resp.data.results;
+            changeObjectKey(store.series);
+            console.log(store.seriesFormatted)
         })
 }
 
@@ -47,7 +56,7 @@ export function fetchImgSizes() {
         }
     })
         .then((resp) => {
-            console.log(resp.data.images.poster_sizes)
+            //console.log(resp.data.images.poster_sizes)
             store.imgSizes = resp.data.images.poster_sizes;
         })
 }
