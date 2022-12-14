@@ -5,7 +5,7 @@
                 userInput: {
                     title: '',
                 },
-                isHidden: false,
+                isVisible: false,
             }
         },
 
@@ -29,9 +29,9 @@
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Cerca film o serie tv"
                         v-model="userInput.title"
-                        v-if="isHidden"
+                        v-if="isVisible"
                         @keyup.enter="onSearchClick">
-                    <button class="btn" type="button" @click="isHidden = !isHidden">
+                    <button class="btn" type="button" @click="isVisible = !isVisible">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>

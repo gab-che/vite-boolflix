@@ -7,6 +7,12 @@
             },
         },
 
+        data(){
+            return{
+                isVisible: false,
+            }
+        },
+
         methods: {
             getMovieSrc(path){
                 if (!path){
@@ -47,29 +53,32 @@
 </script>
 
 <template>
-    <div class="card">
-        <img :src="getMovieSrc(card.poster_path)" class="card-img-top" :alt="card.title">
-        <div class="card-body">
+    <div class="card text-bg-dark"
+        @mouseenter="isVisible = true"
+        @mouseleave="isVisible = false">
+        <img :src="getMovieSrc(card.poster_path)" class="card-img" :alt="card.title">
+        <div class="card-img-overlay overflow-scroll"
+            v-if="isVisible">
             <h5 class="card-title">{{card.title}}</h5>
             <p class="card-text">{{card.original_title}}</p>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <!-- {{card.original_language}} -->
-                    <span class="fi" :class="iconFlag.icon"></span>
-                </li>
-                <li class="list-group-item">
-                    <i class="fa-solid fa-star"
+            <p class="card-text">Lingua: 
+                <span class="fi" :class="iconFlag.icon"></span>
+            </p>
+            <p class="card-text">
+                <i class="fa-solid fa-star"
                     v-for="i in newVote.fullStars"></i>
-                    <i class="fa-regular fa-star"
+                <i class="fa-regular fa-star"
                     v-for="i in newVote.emptyStars"></i>
-                </li>
-            </ul>
+            </p>
+            <p class="card-text">{{card.overview}}</p>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-    li{
-        padding-inline: 0;
+    @use '../styles/partials/variables' as *;
+
+    .card-img-overlay{
+        background-color: $bg_color;
     }
 </style>

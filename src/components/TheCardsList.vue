@@ -20,7 +20,7 @@
 <template>
     <h2>Film</h2>
     <div class="row">
-        <div class="col-7 col-sm-5 col-lg-3"
+        <div class="col-7 col-sm-5 col-lg-2"
             v-for="(card, i) in store.movies">
             <TheCard 
             :card="card" 
@@ -31,7 +31,7 @@
 
     <h2>Serie TV</h2>
     <div class="row">
-        <div class="col-7 col-sm-5 col-lg-3"
+        <div class="col-7 col-sm-5 col-lg-2"
             v-for="card in store.seriesFormatted">
             <TheCard :card="card"></TheCard>
         </div>
