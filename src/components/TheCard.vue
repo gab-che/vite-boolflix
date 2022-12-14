@@ -31,6 +31,16 @@
                 }
 
                 return toReturn
+            },
+
+            newVote(){
+                const halfVote = Math.floor(this.card.vote_average / 2);
+                let toReturn = {
+                    fullStars: halfVote,
+                    emptyStars: 5 - halfVote
+                }
+
+                return toReturn
             }
         }
     }
@@ -44,14 +54,22 @@
             <p class="card-text">{{card.original_title}}</p>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    {{card.original_language}}
+                    <!-- {{card.original_language}} -->
                     <span class="fi" :class="iconFlag.icon"></span>
                 </li>
-                <li class="list-group-item">{{card.vote_average}}</li>
+                <li class="list-group-item">
+                    <i class="fa-solid fa-star"
+                    v-for="i in newVote.fullStars"></i>
+                    <i class="fa-regular fa-star"
+                    v-for="i in newVote.emptyStars"></i>
+                </li>
             </ul>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
+    li{
+        padding-inline: 0;
+    }
 </style>
