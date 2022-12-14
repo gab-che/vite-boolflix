@@ -11,11 +11,12 @@ export const store = reactive({
 });
 
 export function changeObjectKey(oldarray) {
-    oldarray.map(({
-        name: title,
-        original_name: original_title,
-        ...keys
-    }) => store.seriesFormatted.push({ title, original_title, ...keys }));
+    store.seriesFormatted = [],
+        oldarray.map(({
+            name: title,
+            original_name: original_title,
+            ...keys
+        }) => store.seriesFormatted.push({ title, original_title, ...keys }));
 }
 
 export function fetchMovies() {
@@ -45,7 +46,6 @@ export function fetchSeries() {
         .then((resp) => {
             store.series = resp.data.results;
             changeObjectKey(store.series);
-            console.log(store.seriesFormatted)
         })
 }
 
@@ -56,7 +56,7 @@ export function fetchImgSizes() {
         }
     })
         .then((resp) => {
-            //console.log(resp.data.images.poster_sizes)
+            console.log(resp.data)
             store.imgSizes = resp.data.images.poster_sizes;
         })
 }

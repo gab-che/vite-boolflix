@@ -24,7 +24,7 @@
     <h2>Serie TV</h2>
     <div class="row">
         <div class="col col-sm-5 col-lg-3"
-            v-for="card in store.series">
+            v-for="card in store.seriesFormatted">
             <TheCard :card="card"></TheCard>
         </div>
     </div>
