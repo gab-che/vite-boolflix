@@ -15,6 +15,24 @@
                 return "https://image.tmdb.org/t/p/" + store.imgSizes[3] + path;
             },
         },
+
+        computed:{
+            iconFlag(){
+                let toReturn = {
+                    icon: `fi-${this.card.original_language}`
+                }
+
+                if(this.card.original_language === 'en' || this.card.original_language === 'uk'){
+                    toReturn.icon = 'fi-gb'
+                } else if(this.card.original_language === 'ja'){
+                    toReturn.icon = 'fi-jp'
+                } else if(this.card.original_language === 'da'){
+                    toReturn.icon = 'fi-dk'
+                }
+
+                return toReturn
+            }
+        }
     }
 </script>
 
@@ -25,7 +43,10 @@
             <h5 class="card-title">{{card.title}}</h5>
             <p class="card-text">{{card.original_title}}</p>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{card.original_language}}</li>
+                <li class="list-group-item">
+                    {{card.original_language}}
+                    <span class="fi" :class="iconFlag.icon"></span>
+                </li>
                 <li class="list-group-item">{{card.vote_average}}</li>
             </ul>
         </div>

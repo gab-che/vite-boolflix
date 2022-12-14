@@ -29,6 +29,7 @@ export function fetchMovies() {
     })
         .then((resp) => {
             store.movies = resp.data.results
+            console.log(resp.data.results)
         })
         .catch((error) => {
             //console.log(error);
