@@ -9,8 +9,8 @@
 </script>
 
 <template>
-    <div class="container">
         <TheHeader />
+    <div class="container py-4">
         <TheMain />
     </div>
 </template>

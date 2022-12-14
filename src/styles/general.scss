@@ -4,6 +4,27 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'node_modules/flag-icons/css/flag-icons.min.css';
 
+body{
+    height: 100%;
+    background-color: $bg_color;
+    color: $primary_color;
+}
+
 p{
     margin-bottom: 0;
+}
+
+ul{
+    list-style: none;
+    margin-bottom: 0;
+}
+
+a{
+    text-decoration: none;
+    color: $secondary_color;
+    padding: .5rem;
+
+    &:hover{
+        color: $primary_color;
+    }
 }

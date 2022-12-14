@@ -1,5 +1,19 @@
+@use './variables' as *;
+
 @mixin flex_nowrap{
     display: flex;
     flex-wrap: nowrap;
     overflow: scroll;
+}
+
+@mixin flex_between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex_gap{
+    display: flex;
+    align-items: center;
+    gap: calc($standard_spacing / 2);
 }
