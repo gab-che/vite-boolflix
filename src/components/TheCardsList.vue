@@ -1,5 +1,5 @@
 <script>
-    import {store} from '../store';
+    import {store, fetchImgSizes} from '../store';
     import TheCard from './TheCard.vue';
     export default{
         components: { TheCard },
@@ -7,7 +7,12 @@
         data(){
             return{
                 store,
+                imgSizes: [],
             }
+        },
+
+        mounted(){
+            fetchImgSizes()
         }
     }
 </script>
@@ -16,8 +21,11 @@
     <h2>Film</h2>
     <div class="row">
         <div class="col col-sm-5 col-lg-3"
-            v-for="card in store.movies">
-            <TheCard :card="card"></TheCard>
+            v-for="(card, i) in store.movies">
+            <TheCard 
+            :card="card" 
+            :key="i">
+            </TheCard>
         </div>
     </div>
 
