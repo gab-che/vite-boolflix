@@ -1,13 +1,21 @@
 <script>
-    import {store, fetchImgSizes} from '../store';
+    import {store, fetchImgSizes, fetchMovies} from '../store';
     import TheCard from './TheCard.vue';
+    import PaginationButtons from './PaginationButtons.vue';
     export default{
-        components: { TheCard },
+        components: { TheCard, PaginationButtons },
         
         data(){
             return{
                 store,
                 imgSizes: [],
+            }
+        },
+
+        methods: {
+            onPageChange(newPage){
+                this.store.currentPage = newPage;
+                fetchMovies()
             }
         },
 
@@ -27,6 +35,10 @@
             :key="i">
             </TheCard>
         </div>
+        <!-- <div class="col-7 col-sm-5 col-lg-2">
+            <PaginationButtons :currentPage="store.currentPage"
+            @changePage="onPageChange"></PaginationButtons>
+        </div> -->
     </div>
 
     <h2>Serie TV</h2>

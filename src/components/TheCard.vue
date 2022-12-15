@@ -57,19 +57,26 @@
         @mouseenter="isVisible = true"
         @mouseleave="isVisible = false">
         <img :src="getMovieSrc(card.poster_path)" class="card-img" :alt="card.title">
+        <!-- contenitore overlay -->
         <div class="card-img-overlay overflow-scroll"
             v-if="isVisible">
+            <!-- titolo film tradotto-->
             <h5 class="card-title">{{card.title}}</h5>
-            <p class="card-text">{{card.original_title}}</p>
+            <!-- titolo film originale -->
+            <p class="card-text"
+                v-if="card.title !== card.original_title">{{card.original_title}}</p>
+            <!-- bandierina -->
             <p class="card-text">Lingua: 
                 <span class="fi" :class="iconFlag.icon"></span>
             </p>
+            <!-- stelilne -->
             <p class="card-text">
                 <i class="fa-solid fa-star"
                     v-for="i in newVote.fullStars"></i>
                 <i class="fa-regular fa-star"
                     v-for="i in newVote.emptyStars"></i>
             </p>
+            <!-- trama -->
             <p class="card-text">{{card.overview}}</p>
         </div>
     </div>

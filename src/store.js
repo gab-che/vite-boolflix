@@ -8,6 +8,7 @@ export const store = reactive({
     imgSizes: [],
     searchInput: '',
     seriesFormatted: [],
+    currentPage: 1,
 });
 
 export function changeObjectKey(oldarray) {
@@ -25,6 +26,7 @@ export function fetchMovies() {
             api_key: store.apiKey,
             language: 'it-IT',
             query: store.searchInput,
+            page: store.currentPage,
         }
     })
         .then((resp) => {

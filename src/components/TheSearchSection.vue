@@ -15,10 +15,7 @@
             onSearchClick(){
                 this.$emit('search-title', this.userInput.title)
             },
-            
         },
-
-
     }
 </script>
 
@@ -31,7 +28,8 @@
                         v-model="userInput.title"
                         v-if="isVisible"
                         @keyup.enter="onSearchClick">
-                    <button class="btn" type="button" @click="isVisible = !isVisible">
+                    <button class="btn" type="button" 
+                        @click="isVisible = !isVisible">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>
